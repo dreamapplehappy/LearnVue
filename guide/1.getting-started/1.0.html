@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js getting-started</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+<h1>Together</h1>
+<div id="app4">
+    <input v-model="todo" v-on:keyup.enter="addItem" type="text">
+    <ul>
+        <li v-for="todo in todos">{{todo.text}} <span v-on:click="removeItem($index)">x</span></li>
+    </ul>
+</div>
+
+<h1>Hello-World</h1>
+<div id="app">{{message}}</div>
+<hr>
+
+<h1>Two-way-Binding</h1>
+<div id="app1">
+    <p>{{message}}</p>
+    <input v-model="message" type="text">
+</div>
+<hr>
+
+<h1>Render-a-List</h1>
+<div id="app2">
+    <ul>
+        <li v-for="v in todos">{{v.text}}</li>
+    </ul>
+</div>
+<hr>
+
+<h1>Handle-User-Input</h1>
+<div id="app3">
+    <input v-model="userInput" type="text">
+    <button v-on:click="reverseMessage">reverse</button>
+    <p>{{userInput}}</p>
+</div>
+<hr>
+
+<!-- scripts of vue-->
+<script>
+    // together
+    new Vue({
+        el: '#app4',
+        data: {
+            todo: '',
+            todos: [
+                {text: 'learn vue.js'}
+            ]
+        },
+        methods: {
+            addItem: function () {
+                var todo = this.todo.trim();
+                if (todo) {
+                    this.todos.push({text: todo});
+                    this.todo = '';
+                }
+            },
+            removeItem: function (index) {
+                this.todos.splice(index, 1);
+            }
+        }
+    });
+
+    // handle user input
+    new Vue({
+        el: '#app3',
+        data: {
+            userInput: ''
+        },
+        methods: {
+            reverseMessage: function () {
+                this.userInput = this.userInput.split('').reverse().join('');
+            }
+        }
+    });
+
+    // render a list
+    new Vue({
+        el: '#app2',
+        data: {
+            todos: [
+                {text: 'Learn JavaScript'},
+                {text: 'Learn vue.js'},
+                {text: 'bulid some awesome webapps'}
+            ]
+        }
+    });
+
+    // two way binding
+    new Vue({
+        el: '#app1',
+        data: {
+            message: 'two way data binding!'
+        }
+    });
+
+    // hello world
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello, Vue.js!'
+        }
+    });
+</script>
+</body>
+</html>
