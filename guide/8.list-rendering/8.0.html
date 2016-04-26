@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js getting-started</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+  <!-- vue.js practice -->
+<div id="app">
+  <ul v-if=false>
+    <li v-for="item in items">{{parentMsg}}-{{$index}}-{{item.msg}}</li>
+  </ul>
+
+  <ul>
+    <template v-for="item of items">
+      <li>{{$index}}-{{item.msg}}</li>
+    </template>
+  </ul>
+  <hr>
+  <input v-model="msg" type="text">
+  <hr>
+  <button @click="push">push</button>
+  <button @click="unshift">unshif</button>
+  <button>pop</button>
+  <button>shift</button>
+  <button>sort</button>
+  <button>splice</button>
+  <button>reverse</button>
+  <pre>
+    由于JavaScript的限制，Vue.js对数组中的元素操作有一些限制：
+      1.vm.items.length = 0 不能触发视图更新，这时候应该使用vm.items = [];
+      2.不可以直接用下标操作数组，vm.items.$set(index, {})
+      3.还有一个方法vm.items.$remove(item)
+  </pre>
+</div>
+
+<script src="./8.0.js"></script>
+</body>
+</html>

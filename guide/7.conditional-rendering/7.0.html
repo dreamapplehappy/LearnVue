@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js getting-started</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+  <!-- vue.js practice -->
+<div id="app">
+  <!-- v-if -->
+  <h1 v-if="ok">This is v-if directive</h1>
+  <!-- v-if&v-else -->
+  <h1 v-if="!ok">This is v-if directive</h1>
+  <h1 v-else>This is v-else directive</h1>
+  <!-- template v-if -->
+  <template v-if="ok">
+    <h1>This is template && v-if directive</h1>
+    <p>hello</p>
+  </template>
+  <!-- v-show directive 不支持使用 template -->
+  <h1 v-show="ok">v-ok directive</h1>
+  
+</div>
+
+<script src="./7.0.js"></script>
+</body>
+</html>
