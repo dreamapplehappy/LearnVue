@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js getting-started</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+  <!-- vue.js practice -->
+<div id="app">
+  <button @click="showName">show name</button>
+  <button @click="say('dream', $event)">say what</button>
+  <button @click="hello($event)">hello</button>
+
+  <button @click.prevent="hello($event)">hello</button>
+  <button @click.stop="hello($event)">hello</button>
+  <button @click.self="hello($event)">hello</button>
+  <button @click.capture="hello($event)">hello</button>
+</div>
+
+<script src="./9.0.js"></script>
+</body>
+</html>
