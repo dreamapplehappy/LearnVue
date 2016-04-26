@@ -7,10 +7,20 @@
 </head>
 <body>
   <div id="app">
+    <a :href="url">链接到百度</a>
+    <h1 v-if="boolValue">我是h1标签</h1>
+    <button @click="changeMsg">button</button>
+    <hr>
+    <p>表达式: {{msg.split('').reverse().join('#')}}</p>
+    <p>三目运算符: {{ok ? 'OK' : 'NO'}}</p>
+    <p>简单的运算: {{id+100}}</p>
     <p>two-way data binding: {{msg}}</p>
     <p>only bind once: {{* msg}}</p>
     <hr>
     <button v-on:click="changeMsg">changeMsg</button>
+    <hr>
+    <div>{{{rawHtml}}}</div>
+    <div class="item-{{id}}">class 的Id是:{{id}}</div>
   </div>
   <script src="./4.1.0.js"></script>
 </body>
