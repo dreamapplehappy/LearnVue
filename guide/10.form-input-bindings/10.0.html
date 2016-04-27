@@ -8,7 +8,70 @@
 <body>
   <!-- vue.js practice -->
 <div id="app">
-
+  <ul>
+    <li>
+      <h3>section 1: your input: {{message}}</h3>
+      <input v-model="message" type="text" placeholder="edit me">
+    </li>
+    <li>
+      <h3>section 2: your checkbox value(without default value): {{checkBoxValue1}}</h3>
+      <label for="checkBoxValue1"><input v-model="checkBoxValue1" id="checkBoxValue1" type="checkbox"></label>
+      <h3>section 2: your checkbox value(with default value): {{checkBoxValue2}} </h3>
+      <label for="checkBoxValue2"><input v-model="checkBoxValue2" id="checkBoxValue2" value="checkBoxValue2" type="checkbox"></label>
+    </li>
+    <li>
+      <h3>section 3: your checkNames: {{checkNames | json}}</h3>
+      <label for="checkNames-1"><input v-model="checkNames" value="A" id="checkNames-1" type="checkbox">A</label>
+      <label for="checkNames-2"><input v-model="checkNames" value="B" id="checkNames-2" type="checkbox">B</label>
+      <!-- 如果在input标签上没有添加标签的话，那么就是会在数组中添加一个`on`字符串 -->
+      <label for="checkNames-3"><input v-model="checkNames"  id="checkNames-3" type="checkbox">C</label>
+    </li>
+    <li>
+      <h4>section 4: your radio: {{picked}}</h4>
+      <label for="one"><input v-model="picked" value="One" id="one" type="radio">One</label>
+      <label for="two"><input v-model="picked" value="Two" id="two" type="radio">Two</label>
+    </li>
+    <li>
+      <h4>section 5: your select: {{selected}}</h4>
+      <select v-model="selected">
+        <option value="A" selected>option A</option>
+        <option value="B">option B</option>
+        <option value="C">option C</option>
+      </select>
+    </li>
+    <li>
+      <h4>section 6: your multiple select: {{multipleSelected}}</h4>
+      <select v-model="multipleSelected" multiple>
+        <option value="A" selected>option A</option>
+        <option value="B">option B</option>
+        <option value="C">option C</option>
+      </select>
+    </li>
+    <li>
+      <h4>section 7: your v-for select: {{vForSelected | json}}</h7>
+      <select v-model="vForSelected">
+        <option v-for="o in vForSelectedItems" v-bind:value="o.value">{{o.name}}</option>
+      </select>
+    </li>
+    <li>
+      <h4>绑定value: radio:{{bindRadio}} | checkbox:{{bindCheckbox}}</h4>
+      <label for="bind-radio"><input v-bind:value="bindRadioValue" v-model="bindRadio" id="bind-radio" type="radio"></label>
+      <label for="bind-checkbox">
+        <input v-bind:true-value="checkboxTrue"
+               v-bind:false-value="checkboxFalse"
+               v-model="bindCheckbox"
+               id="bind-check" type="checkbox"></label>
+    </li>
+    <li>
+      <h4>{{number}}</h4>
+      <input v-model="number" type="text" number>
+    </li>
+  </ul>
+  <pre>
+    1.lazy
+    2.number
+    3.debounce
+  </pre>
 </div>
 
 <script src="./10.0.js"></script>
