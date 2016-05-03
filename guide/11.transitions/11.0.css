@@ -1,0 +1,47 @@
+ul {
+    padding-left: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.staggered-transition {
+    transition: all .5s ease;
+    overflow: hidden;
+    margin: 0;
+    height: 20px;
+}
+.staggered-enter, .staggered-leave {
+    opacity: 0;
+    height: 0;
+}
+.expand-transition {
+  transition: all .6s ease;
+  height: 30px;
+  padding: 10px;
+  background-color: #eee;
+  overflow: hidden;
+}
+.expand-enter,.expand-leave {
+  height: 0;
+  padding: 0 10px;
+  opacity: 0;
+}
+.hello {
+  background-color: #000;
+  color: #fff;
+}
+
+.demo-transition {
+  transition: all .6s ease;
+  height: 60px;
+  background-color: #0f0;
+  overflow: hidden;
+}
+.demo-enter {
+  background-color: #f00;
+  width: 100px;
+  margin: 0 auto;
+}
+.demo-leave {
+  background-color: #888;
+  width: 200px;
+  float: right;
+}

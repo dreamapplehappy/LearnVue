@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js getting-started</title>
+    <script src="http://cdn.bootcss.com/jquery/2.0.0/jquery.js"></script>
+    <script src="../lib/vue.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.css">
+    <link rel="stylesheet" href="11.0.css">
+</head>
+<body>
+  <!-- vue.js practice -->
+<div id="app">
+  <h1>渐进过渡</h1>
+  <input type="text" v-model="query">
+  <ul>
+    <li transition="staggered" stagger="100" v-for="item in items | filterBy query">{{item.name}}</li>
+  </ul>
+
+  <div class="hello">hello</div>
+  <div v-if="show" transition="expand">Hello,World!</div>
+  <button @click="toggle">Toggle</button>
+
+  <hr>
+
+  <div v-show="demoShow" transition="demo">demo transition</div>
+  <button @click="demoClick">Toggle</button>
+
+  <hr>
+
+  <div v-show="demo1Show" transition="demo1">demo1 transition</div>
+  <button @click="demo1Click">Toggle</button>
+
+  <hr>
+  <div v-show="bounceShow" class="animated" transition="bounce">bounce toggle</div>
+  <button @click="bounceClick">Toggle</button>
+
+  <hr>
+  <div v-show="fadeShow" transition="fade">fade animate</div>
+  <button @click="fadeClick">Toggle</button>
+
+</div>
+<script src="./11.0.js"></script>
+</body>
+</html>
