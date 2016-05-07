@@ -9,8 +9,11 @@
 <body>
 
 <div class="app" id="app">
-  <my-component-one></my-component-one>
+  <!-- 全局注册 -->
+  <my-component-one :my-msg="qew"></my-component-one>
   <hr>
+  <!-- 局部注册 -->
+  <parent></parent>
 </div>
 
 <script src='12.0.js'></script>
