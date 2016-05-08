@@ -10,11 +10,34 @@
 
 <div class="app" id="app">
   <!-- 全局注册 -->
-  <my-component-one :my-msg="qew"></my-component-one>
+  <!-- <my-component-one :my-msg="qew"></my-component-one> -->
   <hr>
   <!-- 局部注册 -->
-  <parent></parent>
+  <!-- <parent></parent> -->
+  <hr>
+  <!-- 关于数据绑定的问题 -->
+  <!-- <parent1></parent1> -->
+  <hr>
+  <!-- 关于组件的验证 -->
+  <!-- <component-validate
+    prop-b='hello',
+    prop-c='wei'
+  ></component-validate> -->
+  <hr>
+  <h3>自定义事件</h3>
+  <p>Messages: {{ messages | json }}</p>
+  <child2></child2>
+  <hr>
+
+  <!-- template -->
+  <template id="child-template">
+  <input v-model="msg">
+  <button v-on:click="notify">Dispatch Event</button>
+</template>
+  <!-- template -->
 </div>
+
+
 
 <script src='12.0.js'></script>
 </body>
