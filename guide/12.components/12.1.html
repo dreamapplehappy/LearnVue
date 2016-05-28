@@ -13,13 +13,35 @@
     <p slot="header">这是组件的头部，定义在父组件中</p>
     <p slot="footer">这是组件的尾部，定义在父组件中</p>
   </my-component>
+
+  <!-- 动态组件 -->
+  <hr>
+  <div>
+    <input type="text" v-model="componentId">
+    <button @click="changeComponent">更换组件</button>
+  </div>
+  <!-- 如果把切换出去的组件保留在内存中，可以保留它的状态或避免重新渲染。为此可以添加一个 keep-alive 指令参数 -->
+  <component :is="componentID"
+             transition="fade"
+             transition-mode="out-in"
+             keep-alive >
+  </component>
 </div>
 
 <template id="my-component">
   <slot name="header"></slot>
-  <div>我是组件的内容，定义在组件的模板中</div>
+  <div>Attention: 我是组件的内容，定义在组件的模板中</div>
   <slot name="footer"></slot>
 </template>
+
+<template id="home-component">
+  <div>Home Component</div>
+</template>
+
+<template id="tab-component">
+  <div>Tab Component</div>
+</template>
+
 <script src='12.1.js'></script>
 </body>
 </html>

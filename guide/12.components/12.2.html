@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>components 杂项</title>
+  <link rel="stylesheet" href="12.0.css">
+  <script src="../lib/vue.js"></script>
+</head>
+<body>
+
+<div>
+  <my-component v-for="item in items"
+                :index="$index"
+                :item="item">
+  </my-component>
+</div>
+
+<template id="my-template">
+  <div>
+    <h3>{{item.name}}| <span>{{index}}</span></h3>
+  </div>
+</template>
+
+<script src='12.2.js'></script>
+</body>
+</html>
