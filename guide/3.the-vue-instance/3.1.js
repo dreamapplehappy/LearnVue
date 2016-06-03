@@ -1,6 +1,7 @@
 var data = {
   msgAfterHandle: 'ui',
-  message: 'Hello,World!'
+  message: 'Hello,World!',
+  a: 18
 };
 var vm = new Vue({
   el: '#app',
@@ -30,13 +31,19 @@ var vm = new Vue({
   }
 });
 
-console.log(vm.message === data.message, 'vm.data === data');
+console.log(vm.$data === data, 'vm.$data === data');
+
+console.log(vm.message === data.message, 'vm.message === data.message');
 
 // 示例暴露的一些方法和属性
 console.log(vm.$data, 'vm.$data');
 console.log(vm.$el, 'vm.$el');
 console.log(vm.$watch, 'vm.$watch');
 
-setTimeout(function() {
-  vm.$destroy();
-}, 2000);
+vm.$watch('a', function(newValue, oldValue) {
+  console.log('a 发生改变： ', newValue);
+})
+
+// setTimeout(function() {
+//   vm.$destroy();
+// }, 2000);
