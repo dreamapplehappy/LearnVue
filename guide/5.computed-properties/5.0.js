@@ -10,13 +10,13 @@ var vm = new Vue({
     },
     c: {
       get: function() {
-        console.log('getter trigger');
+        console.log('getter trigger', this.a);
         var c = this.a + 100;
         return c;
       },
-      set: function() {
-        console.log('setter trigger');
-        var c = c + 1;
+      set: function(newValue) {
+        console.log('setter trigger', newValue);
+        this.a = 8;
       }
     }
   }
