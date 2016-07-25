@@ -16,44 +16,50 @@ router.map({
   '/': {
     name: 'named-route',
     component: function (resolve) {
-        require(['./pages/home'], resolve)
-      }
+      require(['./pages/home'], resolve)
+    }
+  },
+  '/try-component': {
+    name: 'try-component',
+    component: function (resolve) {
+      require(['./pages/try-component'], resolve)
+    }
+  },
+  '/basic-usage': {
+    component: function (resolve) {
+      require(['./pages/basic-usage'], resolve)
+    }
+  },
+  '/params/:name': {
+    component: function (resolve) {
+      require(['./pages/params'], resolve)
+    }
+  },
+  '/nested-routes': {
+    auth: true,
+    component: function (resolve) {
+      require(['./pages/nested-routes'], resolve)
     },
-    '/basic-usage': {
-      component: function (resolve) {
-          require(['./pages/basic-usage'], resolve)
+    subRoutes: {
+      '/': {
+        component: {
+          template: '<p>路由0</p>'
         }
       },
-      '/params/:name': {
-        component: function (resolve) {
-            require(['./pages/params'], resolve)
-          }
-        },
-      '/nested-routes': {
-        auth: true,
-        component: function (resolve) {
-            require(['./pages/nested-routes'], resolve)
-          },
-          subRoutes: {
-              '/': {
-                component : {
-                  template : '<p>路由0</p>'
-                }
-              },
-              '/a': {
-                component : NestedRouteA
-              },
-              '/b': {
-                component : {
-                  template : '<p>路由b</p>'
-                }
-              }
-          }
+      '/a': {
+        component: NestedRouteA
+      },
+      '/b': {
+        component: {
+          template: '<p>路由b</p>'
         }
+      }
+    }
+  }
 })
 
-router.beforeEach(function(transition) {
-  if(transition.to.auth) {
+router.beforeEach(function (transition) {
+  if (transition.to.auth) {
     console.warn('需要用户验证信息')
   }
   else {

@@ -1,18 +1,27 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <try-slot>
+      <p slot="header">header</p>
+      <p slot="footer">footer</p>
+    </try-slot>
   </div>
 </template>
 
 <script>
+  /* eslint-disable */
+  import TrySlot from './TrySolt.vue'
 export default {
+  components: {
+    TrySlot
+  },
   data () {
     return {
       // note: changing this line won't causes changes
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello World!'
+      msg: 'Hello World!+'
     }
   }
 }
